@@ -10,7 +10,7 @@
 <body>
 
 <c:forEach items="${ boardlist }" var="board">
-	${ board.no } <br> ${ board.title } <br> ${ board.content }   
+	NO : ${ board.no } <br> title : ${ board.title } <br> content: ${ board.content }   
 </c:forEach>
 
 </body>
