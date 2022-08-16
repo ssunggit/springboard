@@ -6,4 +6,6 @@ import kr.ac.kopo.board.vo.BoardVO;
 
 public interface BoardDAO {
 	List<BoardVO> selectAll();
+
+	BoardVO selectByNo(int boardNo);
 }

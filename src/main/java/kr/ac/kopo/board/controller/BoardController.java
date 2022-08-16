@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.kopo.board.service.BoardService;
@@ -25,5 +27,36 @@ public class BoardController {
 		request.setAttribute("boardlist", boardlist);
 		// WEB-INF/jsp/board/list.jsp
 		return "board/list";
+	}
+	
+	//  /board/detail?boardNo=3
+//	@RequestMapping("/board/detail")
+//	public String detail(HttpServletRequest request, @RequestParam("boardNo") int boardNo, Model model) {
+//		//String boardNo = request.getParameter("boardNo");
+//		//boardService.getOneBoard(Integer.parseInt(boardNo));
+//		
+//		BoardVO board = boardService.getOneBoard(boardNo);
+//		model.addAttribute("board",board);
+//		return "board/detail";
+//	}
+	/*
+	@RequestMapping("/board/detail/{boardNo}")
+	public String detail(HttpServletRequest request, @PathVariable("boardNo") int boardNo, Model model) {
+		//String boardNo = request.getParameter("boardNo");
+		//boardService.getOneBoard(Integer.parseInt(boardNo));
+		
+		BoardVO board = boardService.getOneBoard(boardNo);
+		model.addAttribute("board",board);
+		return "board/detail";
+	}
+	*/
+	@RequestMapping("/board/detail/{boardNo}")
+	public String detail2(@PathVariable("boardNo") int boardNo, Model model) {
+		//String boardNo = request.getParameter("boardNo");
+		//boardService.getOneBoard(Integer.parseInt(boardNo));
+		
+		BoardVO board = boardService.getOneBoard(boardNo);
+		model.addAttribute("board",board);
+		return "board/detail";
 	}
 }
