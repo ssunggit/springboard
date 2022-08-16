@@ -31,4 +31,11 @@ public class BoardDAOImpl implements BoardDAO {
 		return board;
 	}
 
+	@Override
+	public void insert(BoardVO board) {
+								// id 						// 파라미터
+		sqlSessionTemplate.insert("board.dao.boardDAO.insert", board);
+		
+	}
+
 }

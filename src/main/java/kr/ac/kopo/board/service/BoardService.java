@@ -8,4 +8,6 @@ public interface BoardService {
 	List<BoardVO> getAllBaord();
 
 	BoardVO getOneBoard(int boardNo);
+	
+	void write(BoardVO board);
 }

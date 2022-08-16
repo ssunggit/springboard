@@ -112,5 +112,41 @@
 	    <version>1.2</version>
 	</dependency>
   	
+  	<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+	<dependency>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>6.2.4.Final</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ucp -->
+	<dependency>
+	    <groupId>com.oracle.database.jdbc</groupId>
+	    <artifactId>ucp</artifactId>
+	    <version>21.6.0.0.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
+	<dependency>
+	    <groupId>com.oracle.database.security</groupId>
+	    <artifactId>oraclepki</artifactId>
+	    <version>21.6.0.0.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core -->
+	<dependency>
+	    <groupId>com.oracle.database.security</groupId>
+	    <artifactId>osdt_core</artifactId>
+	    <version>21.6.0.0.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_cert -->
+	<dependency>
+	    <groupId>com.oracle.database.security</groupId>
+	    <artifactId>osdt_cert</artifactId>
+	    <version>21.6.0.0.1</version>
+	</dependency>
+
+
   </dependencies>
 </project>

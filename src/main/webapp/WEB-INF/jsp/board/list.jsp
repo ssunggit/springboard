@@ -10,6 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<c:if test="${ not empty loginVO }">
+		${ loginVO.name }님 반가워요.
+	</c:if>
 	
 	<table class="table table-striped table-hover" style="width: 80%; margin: auto; text-align: center;">
 		<thead>
@@ -42,6 +46,7 @@
 				</tr>
 			</c:forEach>
 		</tbody>
+		
 	</table>	
 	
 </body>

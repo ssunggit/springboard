@@ -13,8 +13,13 @@
     select no,title,writer,content,view_cnt,reg_date from t_board order by no desc
   </select>
   
-    <select id="selectByNo" parameterType="int" resultMap="boardMap">
+  <select id="selectByNo" parameterType="int" resultMap="boardMap">
   	select * from t_board where no = #{no}
   </select>
+  
+  <insert id="insert" parameterType="BoardVO">
+  	insert into t_board (no, title, writer, content)
+  	values (seq_t_board_no.nextval, #{title}, #{writer}, #{content})
+  </insert>
   
 </mapper>

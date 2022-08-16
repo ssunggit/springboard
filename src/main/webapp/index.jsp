@@ -7,8 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-index.jsp 입니다.
+	index.jsp 입니다.
 
-<a href="${pageContext.request.contextPath }/board">게시판</a>
+	<a href="${pageContext.request.contextPath }/login">로그인</a>
+	<a href="${pageContext.request.contextPath }/logout">로그아웃</a>
+	<a href="${pageContext.request.contextPath }/signup">회원가입</a>
+
+	<a href="${pageContext.request.contextPath }/board">게시판</a>
+	<a href="${pageContext.request.contextPath }/board/write">새글쓰기</a>
+
 </body>
 </html>
