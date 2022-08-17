@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.ac.kopo.board.vo.BoardVO;
 import kr.ac.kopo.member.vo.MemberVO;
+import kr.ac.kopo.reply.vo.ReplyVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/spring/spring-mvc.xml"})
@@ -58,11 +59,23 @@ public class MyBatisTest {
    public void insertUserTest() {
 	   
 	   MemberVO member = new MemberVO();
-	   member.setId("id");
+	   member.setId("id3");
 	   member.setPassword("password");
 	   member.setName("name");
 	   
 	   sqlSessionTemplate.insert("member.dao.memberDAO.insertUser", member);
+	   
+   }
+   @Test
+   public void insertReplyTest() {
+	   
+	   ReplyVO reply = new ReplyVO();
+	   reply.setBoardNo(1);
+	   reply.setContent("a");
+	   reply.setWriter("a");
+	   reply.setRegDate("a");
+	   
+	   sqlSessionTemplate.insert("reply.dao.replyDAO.insert", reply);
 	   
    }
 
