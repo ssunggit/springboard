@@ -7,14 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index.jsp 입니다.
-
-	<a href="${pageContext.request.contextPath }/login">로그인</a>
-	<a href="${pageContext.request.contextPath }/logout">로그아웃</a>
-	<a href="${pageContext.request.contextPath }/signup">회원가입</a>
-
-	<a href="${pageContext.request.contextPath }/board">게시판</a>
-	<a href="${pageContext.request.contextPath }/board/write">새글쓰기</a>
+<header>
+	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp"></jsp:include>
+</header>
+<h1>
+	index
+</h1>
 
 </body>
 </html>

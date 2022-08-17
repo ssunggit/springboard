@@ -13,6 +13,10 @@ if('${loginmsg}'){
 </script>
 </head>
 <body>
+
+<header>
+	<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp"></jsp:include>
+</header>
 login.jsp입니다
 
 	<form:form action="${pageContext.request.contextPath }/login" method="post" modelAttribute="memberVO">

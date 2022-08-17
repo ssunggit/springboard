@@ -9,6 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<header>
+		<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp"></jsp:include>
+	</header>
+
 	<h1 style="text-align: center;">상세게시글 입니다</h1>
 	
 	<table class="table table-striped table-hover" style="width: 80%; margin: auto; text-align: center;">
@@ -30,10 +34,7 @@
 		<tr>
 			<th>내용</th>
 			<td>${board.content }</td>
-		</tr>
-		
-		
-	
+		</tr>	
 	</table>
 </body>
 </html>

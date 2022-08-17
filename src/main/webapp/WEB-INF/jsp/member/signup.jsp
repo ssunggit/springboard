@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<header>
+		<jsp:include page="/WEB-INF/jsp/include/topMenu.jsp"></jsp:include>
+	</header>
+	
 	<form:form action="${pageContext.request.contextPath }/signup" method="post" modelAttribute="memberVO">
 		<table>
 			<tr>

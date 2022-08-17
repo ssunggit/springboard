@@ -60,7 +60,7 @@ public class BoardController {
 	public String detail2(@PathVariable("boardNo") int boardNo, Model model) {
 		//String boardNo = request.getParameter("boardNo");
 		//boardService.getOneBoard(Integer.parseInt(boardNo));
-		
+		System.out.println("board/detail handler 동작");
 		BoardVO board = boardService.getOneBoard(boardNo);
 		model.addAttribute("board",board);
 		return "board/detail";

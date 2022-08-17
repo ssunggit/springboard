@@ -34,4 +34,16 @@
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 	
+	<bean id="loginInterceptor" class="kr.ac.kopo.interceptor.LoginInterceptor"></bean>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/"/>
+			<mvc:exclude-mapping path="/login"/>
+			<mvc:exclude-mapping path="/resources/**"/>
+			<mvc:exclude-mapping path="/signup"/>
+			<mvc:exclude-mapping path="/board"/>
+			<ref bean="loginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 </beans>

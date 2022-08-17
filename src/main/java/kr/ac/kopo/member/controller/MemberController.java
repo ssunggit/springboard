@@ -78,16 +78,26 @@ public class MemberController {
 			 }else {
 //				 session.setAttribute("loginVO", authMember);
 				 // model은 리퀘스트 영역이라 어노테이션 지정해줘야한다.
-				 model.addAttribute("loginVO", authMember);
+				 model.addAttribute("loginVO", authMember);				 
+//				 return "redirect:/board";
+				 
+				 // dest 가 널일 경우 (로그인을 먼저하는 경우) 인터셉터를 거치지 않는다. 
+				 // -> 널 처리
+				 String dest = (String)session.getAttribute("dest");
+				 System.out.println("dest: "+dest);
+				 if(dest == null) {			 
+					 return "redirect:/";
+				 }else {					 
+					 return "redirect:" + dest;
+				 }
 			 }
-			 return "redirect:/board";
 		 }
 			 
 	}
 	
 	@RequestMapping("/logout")					// SessionStatus : spring거	
 	public String logout(HttpSession session, SessionStatus sessionstatus) {
-//		session.invalidate();
+		session.invalidate();
 		
 //		모델로 등록하여 어노테이션으로 등록한 세션 정보 삭제
 		sessionstatus.setComplete();

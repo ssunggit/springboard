@@ -9,12 +9,10 @@ public class MemberVO {
 	@NotEmpty(message = "필수항목입니다.")
 	private String password;
 
-	
+	// @NotEmpty : 로그인시 오류가 난다 -> 처리방법 : 1. vo 분리 
 	private String name;
 	
 	public MemberVO() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	public String getId() {
 		return id;
