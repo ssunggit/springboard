@@ -7,7 +7,20 @@
       <result column="title" property="title"/>
       <result column="reg_date" property="regDate"/>
       <result column="view_cnt" property="viewCnt"/>
+      <result column="reply_cnt" property="replyCnt"/>
    </resultMap>
+   
+  <!-- 댓글 카운트 증가 -->
+  <update id="increaseReplyCnt" parameterType="int">
+  	update t_board set reply_cnt = reply_cnt + 1 
+  	where no = #{boardNo}
+  </update>
+  
+  <!-- 댓글 카운트 감소  -->
+  <update id="decreaseReplyCnt" parameterType="int">
+  	update t_board set reply_cnt = reply_cnt - 1 
+  	where no = #{boardNo}
+  </update>
 
   <select id="selectAll" resultMap="boardMap">
     select no,title,writer,content,view_cnt,reg_date from t_board order by no desc

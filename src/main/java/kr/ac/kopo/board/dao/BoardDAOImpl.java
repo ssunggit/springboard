@@ -38,4 +38,16 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 
+	@Override
+	public void increaseReplyCnt(int boardNo) {
+		sqlSessionTemplate.update("board.dao.boardDAO.increaseReplyCnt", boardNo);
+		
+	}
+
+	@Override
+	public void decreaseReplyCnt(int boardNo) {
+		sqlSessionTemplate.delete("board.dao.boardDAO.decreaseReplyCnt", boardNo);
+		
+	}
+
 }

@@ -10,6 +10,64 @@
 <title>Insert title here</title>
 <script>
 	$(document).ready(function() {
+		
+		$(document).on('click', '.delBtn', function() {
+			let replyNo = $(this).attr('id')
+			$.ajax({
+				url	 	: '${ pageContext.request.contextPath }/reply/${board.no}/' + replyNo,
+				type	: 'delete',
+				success : function() {
+					alert('성공')
+					getAllReply() 						
+				}, 
+				error 	: function () {
+					alert('실패')						
+				}			
+			})
+		
+		})	
+	})	
+		
+ 	
+
+	function getAllReply() {
+		$.ajax({
+			url	 	: '${ pageContext.request.contextPath }/reply/${board.no}',
+			type	: 'get',
+			success : function(data) {
+				$('#replyList').empty();
+				
+				console.log(typeof data)
+				console.log(data)
+				let list = JSON.parse(data);
+				console.log(list)
+				
+				$(list).each(function () {
+					let str = '';
+					str += '<hr>';
+					str += '<div>';					
+					str += this.content + '		';
+					str += this.writer + '		';
+					str += this.regDate + '		';
+					str += '<button class="delBtn" id='+this.no+'>삭제</button>';
+					
+					str += '</div>';
+					
+					$('#replyList').append(str)
+				})
+				
+			}, 
+			error 	: function () {
+				alert('실패')
+						
+			}
+			
+		})	
+	}
+	
+	
+	$(document).ready(function() {
+		getAllReply()
 		$('#addReplyBtn').click(function () {
 			let r_content = document.rform.content.value;
 			let r_writer = document.rform.writer.value;
@@ -24,17 +82,22 @@
 				},
 				success: function () {
 					alert('성공')
+					// 댓글 리스트 요청
+					getAllReply()
+					
 				},
 				error : function () {
 					alert('실패')					
 				},
 				complete : function () {
-					
+					document.rform.content.value = null
+		            document.rform.writer.value = null
 				}
 				
 			})
 		})
 	})
+	
 
 </script>
 </head>
@@ -64,6 +127,10 @@
 		<tr>
 			<th>내용</th>
 			<td>${board.content}</td>
+		</tr>	
+		<tr>
+			<th>댓글수</th>
+			<td>${board.replyCnt}</td>
 		</tr>	
 	</table>
 	

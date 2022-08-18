@@ -10,4 +10,9 @@ public interface BoardDAO {
 	BoardVO selectByNo(int boardNo);
 	
 	void insert(BoardVO board);
+	
+
+	void increaseReplyCnt(int boardNo);
+
+	void decreaseReplyCnt(int boardNo);
 }
